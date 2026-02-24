@@ -11,8 +11,10 @@ from bs4 import BeautifulSoup
 
 
 # --- CONFIGURATION ---
-#BRAVE_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-JSON_STORAGE = "all_students_report.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BRAVE_PATH = r"C:\Users\karth\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
+JSON_STORAGE = os.path.join(BASE_DIR, "all_students_report.json")
+NORMALIZED_STORAGE = os.path.join(BASE_DIR, "normalized_data.json")
 
 def get_complete_student_data(usn, day, month, year):
     options = Options()
@@ -156,17 +158,17 @@ def parse_and_save_data(scraped_data):
 
     # Trigger normalization for downstream services (AI, etc.)
     try:
-        from .data_normalizer import DataNormalizer
-        DataNormalizer.normalize_all_data(JSON_STORAGE, "normalized_data.json")
-        print("[+] Data normalization complete.")
+        import data_normalizer
+        data_normalizer.DataNormalizer.normalize_all_data(JSON_STORAGE, NORMALIZED_STORAGE)
+        print(f"[+] Data normalization complete: {NORMALIZED_STORAGE}")
     except Exception as e:
         print(f"[!] Normalization failed: {e}")
 
 #---Part done by Ajay----
 # --- EXECUTION ---
 if __name__ == "__main__":
-    MY_USN = "1MS24IS400"
-    DD, MM, YYYY = "20", "10", "2005"
+    MY_USN = "1MS23IS051"
+    DD, MM, YYYY = "19", "11", "2004"
 
     full_data = get_complete_student_data(MY_USN, DD, MM, YYYY)
     if full_data:
