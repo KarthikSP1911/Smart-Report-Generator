@@ -1,0 +1,72 @@
+.admin-dashboard {
+  min-height: calc(100vh - 60px);
+  background-color: #0f172a;
+  padding: 2rem 0;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.admin-header h1 {
+  margin: 0 0 0.5rem 0;
+  color: #e2e8f0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.admin-header p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.error-message {
+  background-color: #7f1d1d;
+  color: #fee2e2;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ef4444;
+}
+
+.admin-content {
+  background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid #334155;
+}
+
+.loading {
+  text-align: center;
+  color: #94a3b8;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 1rem 0;
+  }
+
+  .admin-container {
+    padding: 0 1rem;
+  }
+
+  .admin-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-content {
+    padding: 1.5rem;
+    border-radius: 6px;
+  }
+}

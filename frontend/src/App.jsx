@@ -6,6 +6,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import ProctorLogin from "./pages/ProctorLogin";
 import ProctorDashboard from "./pages/ProctorDashboard";
 import ProcteeDetails from "./pages/ProcteeDetails";
+import AdminDashboard from "./pages/AdminDashboard";
 import "./App.css";
 
 function Navbar() {
@@ -97,6 +98,7 @@ function App() {
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/report/:usn" element={<Report />} />
             <Route path="/proctor/:proctorId/report/:usn" element={<Report />} />
             <Route path="/student-login" element={<StudentLogin />} />
