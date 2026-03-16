@@ -20,7 +20,7 @@ const ProcteeDetails = () => {
                     return;
                 }
 
-                const response = await axios.get(`http://localhost:5000/api/proctor/${proctorId}/student/${usn}`, {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/proctor/${proctorId}/student/${usn}`, {
                     headers: { "x-session-id": sessionId }
                 });
 

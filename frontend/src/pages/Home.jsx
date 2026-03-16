@@ -7,7 +7,7 @@ const Home = () => {
     const [data, setData] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8000/")
+        axios.get(`${import.meta.env.VITE_FASTAPI_URL}/`)
             .then(res => setData(res.data.message))
             .catch(err => console.error(err));
     }, []);

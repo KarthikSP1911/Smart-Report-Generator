@@ -20,7 +20,7 @@ const ProctorDashboard = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/proctor/${proctorId}/dashboard`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/proctor/${proctorId}/dashboard`, {
           headers: { "x-session-id": sessionId }
         });
 

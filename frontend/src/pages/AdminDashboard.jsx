@@ -142,7 +142,7 @@ export default function AdminDashboard() {
             <input 
               type="text" 
               className="admin-input"
-              placeholder="Full Name (Optional)" 
+              placeholder="Full Name" 
               value={newProctor.name}
               onChange={e => setNewProctor({...newProctor, name: e.target.value})}
             />

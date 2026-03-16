@@ -49,7 +49,7 @@ const StudentDashboard = () => {
             }
 
             try {
-                const response = await axios.get("http://localhost:5002/api/auth/profile", {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/profile`, {
                     headers: { "x-session-id": sessionId },
                 });
 
@@ -57,7 +57,7 @@ const StudentDashboard = () => {
                     setStudent(response.data.data);
                 }
 
-                const detailedResp = await axios.get(`http://localhost:5002/api/report/student/${usn}`, {
+                const detailedResp = await axios.get(`${import.meta.env.VITE_API_URL}/report/student/${usn}`, {
                     headers: { "x-session-id": sessionId },
                 });
 
@@ -102,7 +102,7 @@ const StudentDashboard = () => {
             const sessionId = localStorage.getItem("studentSessionId");
             const usn = localStorage.getItem("studentUsn");
 
-            const updateResp = await axios.post("http://localhost:5002/api/report/update", { usn }, {
+            const updateResp = await axios.post(`${import.meta.env.VITE_API_URL}/report/update`, { usn }, {
                 headers: { "x-session-id": sessionId },
             });
 

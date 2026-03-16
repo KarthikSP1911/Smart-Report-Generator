@@ -9,7 +9,6 @@ class AdminController {
                     students: true
                 }
             });
-            // Don't send passwords
             const sanitizedProctors = proctors.map(proctor => {
                 const { password, ...rest } = proctor;
                 return rest;
@@ -46,7 +45,6 @@ class AdminController {
         try {
             const { id } = req.params;
             
-            // Ensure students are unassigned (handled by db/prisma or explicit here)
             await prisma.user.updateMany({
                 where: { proctorId: id },
                 data: { proctorId: null }
