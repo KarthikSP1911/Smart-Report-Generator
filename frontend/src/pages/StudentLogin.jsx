@@ -43,7 +43,7 @@ const CustomSelect = ({ value, onChange, options, placeholder }) => {
                                 color: value === opt ? 'var(--accent-primary)' : 'var(--text-primary)',
                                 background: value === opt ? 'var(--accent-glow)' : 'transparent'
                             }}
-                            onMouseEnter={(e) => e.target.style.background = 'var(--bg-secondary)'}
+                            onMouseEnter={(e) => e.target.style.background = '#F1F5F9'}
                             onMouseLeave={(e) => e.target.style.background = value === opt ? 'var(--accent-glow)' : 'transparent'}
                             onClick={() => {
                                 onChange(opt);

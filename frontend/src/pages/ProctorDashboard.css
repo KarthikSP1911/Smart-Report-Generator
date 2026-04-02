@@ -1,8 +1,7 @@
-/* Dashboard Container */
 .proctor-dashboard {
-  max-width: 100%;
-  margin: 0;
-  padding: 2.5rem 160px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 2.5rem 48px;
   min-height: calc(100vh - var(--nav-height));
   display: flex;
   flex-direction: column;
@@ -99,14 +98,14 @@
   align-items: center;
   padding: 0 16px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .filter-item:hover {
-  background: #232D3F; /* Slightly lighter on hover */
+  background: #F8FAFC; /* Slightly lighter on hover */
   border-color: var(--border-bright);
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
 }
 
 .search-box {
@@ -118,7 +117,7 @@
 .search-icon {
   width: 18px;
   height: 18px;
-  color: #8B949E;
+  color: #94A3B8;
   flex-shrink: 0;
   transition: color 0.2s ease;
 }
@@ -140,12 +139,12 @@
 }
 
 .search-box input::placeholder {
-  color: #64748B;
+  color: #94A3B8;
 }
 
 .filter-item:focus-within {
   border-color: var(--accent-primary);
-  background: #1F242C;
+  background: #FFFFFF;
   box-shadow: 0 0 0 4px var(--accent-glow);
 }
 
@@ -215,7 +214,7 @@
   position: relative;
   overflow: hidden;
   height: 100%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .student-card::before {
@@ -225,21 +224,21 @@
   left: 0;
   right: 0;
   height: 100%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
   pointer-events: none;
 }
 
 .student-card:hover {
   transform: translateY(-8px) scale(1.02);
-  background: #232D3F; /* Consistent with filter hover */
+  background: #F8FAFC; /* Consistent with filter hover */
   border-color: var(--accent-primary);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }
 
 .student-name {
   font-size: 1.35rem;
   font-weight: 800;
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -260,7 +259,7 @@
 }
 
 .info-label {
-  color: #64748b;
+  color: #64748B;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -268,7 +267,7 @@
 }
 
 .info-value {
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -276,7 +275,7 @@
 .view-btn {
   width: 100%;
   padding: 1rem;
-  background: #f97316;
+  background: var(--accent-primary);
   color: white;
   border: none;
   border-radius: 0.85rem;
@@ -284,13 +283,13 @@
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.2);
+  box-shadow: var(--shadow-accent);
 }
 
 .student-card:hover .view-btn {
-  background: #fb923c;
+  background: var(--accent-hover);
   transform: scale(1.02);
-  box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 16px 24px -8px rgba(59, 130, 246, 0.3);
 }
 
 .view-btn:active {
@@ -302,21 +301,21 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: 5rem;
-  background: rgba(30, 41, 59, 0.2);
+  background: #FFFFFF;
   border-radius: 2rem;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border: 1px dashed var(--border-bright);
 }
 
 .no-results p {
-  color: #94a3b8;
+  color: var(--text-muted);
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
 }
 
 .no-results button {
   background: transparent;
-  color: #f97316;
-  border: 1px solid #f97316;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   font-weight: 600;

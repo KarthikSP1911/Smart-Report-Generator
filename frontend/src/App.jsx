@@ -11,7 +11,7 @@ import AdminPanel from "./pages/AdminPanel";
 import CustomDropdown from "./components/CustomDropdown";
 import "./App.css";
 
-function Navbar({ academicYear, setAcademicYear }) {
+function Navbar({ academicYear, setAcademicYear, hasSidebar }) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -42,8 +42,8 @@ function Navbar({ academicYear, setAcademicYear }) {
   const isStudentDashboard = isStudentView && !isReportPage;
 
   return (
-    <nav className="navbar" style={(isStudentDashboard || isProctorView) ? { borderBottom: '1px solid var(--border-subtle)', background: '#0D1117' } : {}}>
-      <div className="container" style={(isStudentDashboard || isProctorView) ? { maxWidth: '100%', padding: '0 160px' } : {}}>
+    <nav className={`navbar ${hasSidebar ? 'with-sidebar' : ''}`}>
+      <div className="container" style={hasSidebar ? { maxWidth: '1200px', margin: '0 auto', padding: '0 32px' } : {}}>
         <div className="nav-logo" style={{ display: 'flex', alignItems: 'center' }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img src="/logo-icon.svg" alt="Smart Report Logo" style={{ height: '32px', width: 'auto' }} />
@@ -89,7 +89,11 @@ function Navbar({ academicYear, setAcademicYear }) {
                   />
                 </div>
               </div>
-              <button onClick={handleLogout} className="btn btn-secondary" style={{ padding: '0.4rem 1.5rem', fontSize: '0.95rem', background: '#2D3748', border: 'none', marginLeft: '8px' }}>
+              <button 
+                onClick={handleLogout} 
+                className="btn btn-secondary" 
+                style={{ padding: '0.4rem 1.5rem', fontSize: '0.95rem', border: '1px solid var(--border-subtle)' }}
+              >
                 Logout
               </button>
             </div>
@@ -101,7 +105,11 @@ function Navbar({ academicYear, setAcademicYear }) {
               <span className="role-info" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 Student: <strong style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{studentUsn}</strong>
               </span>
-              <button onClick={handleLogout} className="btn btn-secondary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.95rem' }}>
+              <button 
+                onClick={handleLogout} 
+                className="btn btn-secondary" 
+                style={{ padding: '0.4rem 1.25rem', fontSize: '0.95rem', border: '1px solid var(--border-subtle)' }}
+              >
                 Logout
               </button>
             </div>
@@ -140,7 +148,7 @@ function AppContent({ academicYear, setAcademicYear }) {
 
   return (
     <div className="app-wrapper" style={{ paddingTop: isReportPage ? '0' : 'var(--nav-height)' }}>
-      {!isReportPage && <Navbar academicYear={academicYear} setAcademicYear={setAcademicYear} />}
+      {!isReportPage && <Navbar academicYear={academicYear} setAcademicYear={setAcademicYear} hasSidebar={location.pathname.startsWith("/student/") && !location.pathname.includes("login")} />}
       <main className="content">
         <Routes>
           <Route path="/" element={<Home />} />
